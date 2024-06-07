@@ -1,0 +1,9 @@
+$zipFiles = Get-ChildItem -Path "C:\Users\MarbleKunaneleMpofu\Downloads\ArchiveErrors\Archives" -Filter *.zip
+$outDir = "C:\Users\MarbleKunaneleMpofu\Downloads\ArchiveErrors\Cleaned"
+
+foreach ($zipFile in $zipFiles) {
+    Write-Output "Extracting $zipFile"
+    Expand-Archive -Path $zipFile.FullName -DestinationPath $outDir -Force
+}
+
+Write-Output "All files have been extracted."
